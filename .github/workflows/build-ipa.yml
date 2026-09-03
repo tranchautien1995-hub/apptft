@@ -1,0 +1,55 @@
+name: Build TFT Meta 18 IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Build unsigned app
+        run: |
+          set -e
+          xcodebuild \
+            -project TFTMeta18.xcodeproj \
+            -scheme TFTMeta18 \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            build
+
+      - name: Validate app bundle
+        run: |
+          set -e
+          APP="build/Build/Products/Release-iphoneos/TFTMeta18.app"
+          test -d "$APP"
+          EXECUTABLE=$(/usr/libexec/PlistBuddy -c "Print :CFBundleExecutable" "$APP/Info.plist")
+          test -n "$EXECUTABLE"
+          test -f "$APP/$EXECUTABLE"
+          echo "Executable OK: $APP/$EXECUTABLE"
+
+      - name: Package IPA
+        run: |
+          set -e
+          rm -rf Payload
+          mkdir Payload
+          cp -R build/Build/Products/Release-iphoneos/TFTMeta18.app Payload/
+          /usr/bin/ditto -c -k --sequesterRsrc --keepParent Payload TFTMeta18-iOS15.ipa
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: TFTMeta18-iOS15-IPA
+          path: TFTMeta18-iOS15.ipa
+          if-no-files-found: error
