@@ -111,7 +111,7 @@ struct RemoteImage: View {
 
     var body: some View {
         ZStack {
-            TFTTheme.panel2
+            TFTTheme.surfaceRaised
 
             if let loadedImage = loader.image {
                 Image(uiImage: loadedImage)
@@ -119,7 +119,7 @@ struct RemoteImage: View {
                     .scaledToFill()
             } else if loader.failed {
                 LinearGradient(
-                    colors: [TFTTheme.panel2, TFTTheme.panel],
+                    colors: [TFTTheme.surfaceRaised, TFTTheme.surface],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )

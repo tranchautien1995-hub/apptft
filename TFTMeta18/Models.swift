@@ -1733,6 +1733,9 @@ enum TFTTheme {
     static let surface = Color(red: 0.082, green: 0.088, blue: 0.104)
     static let surfaceRaised = Color(red: 0.108, green: 0.115, blue: 0.133)
     static let surfaceSoft = Color(red: 0.126, green: 0.132, blue: 0.150)
+    // Compatibility aliases for older views.
+    static let panel = surface
+    static let panel2 = surfaceRaised
     static let border = Color.white.opacity(0.08)
     static let text2 = Color.white.opacity(0.62)
     static let text3 = Color.white.opacity(0.40)
