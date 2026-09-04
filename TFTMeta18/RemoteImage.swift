@@ -1,4 +1,5 @@
 import SwiftUI
+import Foundation
 import UIKit
 
 final class ImageLoader: ObservableObject {
@@ -8,6 +9,8 @@ final class ImageLoader: ObservableObject {
     private var task: URLSessionDataTask?
 
     func load(_ urls: [String]) {
+        task?.cancel()
+        image = nil
         failed = false
         tryURL(urls, index: 0)
     }

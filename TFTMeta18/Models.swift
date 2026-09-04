@@ -74,8 +74,7 @@ enum TFTData {
         return fallback
     }
     static func u(_ name: String, _ slug: String, _ cost: Int, _ items: [ItemBuild] = []) -> UnitBuild { UnitBuild(name: name, imageURL: face(slug), cost: set18Cost(name, fallback: cost), items: items) }
-    static let comps: [TFTComp] = [
-
+    private static let compsChunk01: [TFTComp] = [
         TFTComp(
             id: "blossom_l_diamond_0",
             family: "blossom",
@@ -174,8 +173,10 @@ enum TFTData {
                 u("Rakan","da_18_rakan",1,[])
             ],
             notes: ["Nguồn: tactics.tools · Diamond+ · Last 2 Days.", "Snapshot tĩnh để app mở ngay, không cần server."]
-        ),
+        )
+    ]
 
+    private static let compsChunk02: [TFTComp] = [
         TFTComp(
             id: "fae_l_diamond_4",
             family: "fae",
@@ -274,8 +275,10 @@ enum TFTData {
                 u("Taric","da_taric18",5,[it("Áo Choàng Lửa","DA_SunfireCape")])
             ],
             notes: ["Nguồn: tactics.tools · Platinum+ · Last 2 Days.", "Snapshot tĩnh để app mở ngay, không cần server."]
-        ),
+        )
+    ]
 
+    private static let compsChunk03: [TFTComp] = [
         TFTComp(
             id: "riftbeast_l_platinum_8",
             family: "riftbeast",
@@ -374,8 +377,10 @@ enum TFTData {
                 u("Tristana","da_18_tristana",3,[])
             ],
             notes: ["Nguồn: tactics.tools · Master+ · Last 2 Days.", "Snapshot tĩnh để app mở ngay, không cần server."]
-        ),
+        )
+    ]
 
+    private static let compsChunk04: [TFTComp] = [
         TFTComp(
             id: "elderwood_l_master_12",
             family: "elderwood",
@@ -474,8 +479,10 @@ enum TFTData {
                 u("Zyra","da_18_zyra",4,[])
             ],
             notes: ["Nguồn: tactics.tools · GM+ · Last 2 Days.", "Snapshot tĩnh để app mở ngay, không cần server."]
-        ),
+        )
+    ]
 
+    private static let compsChunk05: [TFTComp] = [
         TFTComp(
             id: "juggernaut_l_gm_16",
             family: "juggernaut",
@@ -574,8 +581,10 @@ enum TFTData {
                 u("Rakan","da_18_rakan",1,[])
             ],
             notes: ["Nguồn: tactics.tools · GM+ · Last 2 Days.", "Snapshot tĩnh để app mở ngay, không cần server."]
-        ),
+        )
+    ]
 
+    private static let compsChunk06: [TFTComp] = [
         TFTComp(
             id: "juggernaut_p_diamond_20",
             family: "juggernaut",
@@ -674,8 +683,10 @@ enum TFTData {
                 u("LeBlanc","da_18_leblanc",2,[])
             ],
             notes: ["Nguồn: tactics.tools · Diamond+ · Patch 18.1d.", "Snapshot tĩnh để app mở ngay, không cần server."]
-        ),
+        )
+    ]
 
+    private static let compsChunk07: [TFTComp] = [
         TFTComp(
             id: "solar_p_diamond_24",
             family: "solar",
@@ -774,8 +785,10 @@ enum TFTData {
                 u("Gnar","da_18_gnarsmall",5,[])
             ],
             notes: ["Nguồn: tactics.tools · Platinum+ · Patch 18.1d.", "Snapshot tĩnh để app mở ngay, không cần server."]
-        ),
+        )
+    ]
 
+    private static let compsChunk08: [TFTComp] = [
         TFTComp(
             id: "summoner_p_platinum_28",
             family: "summoner",
@@ -874,8 +887,10 @@ enum TFTData {
                 u("Tristana","da_18_tristana",3,[])
             ],
             notes: ["Nguồn: tactics.tools · Master+ · Patch 18.1d.", "Snapshot tĩnh để app mở ngay, không cần server."]
-        ),
+        )
+    ]
 
+    private static let compsChunk09: [TFTComp] = [
         TFTComp(
             id: "elderwood_p_master_32",
             family: "elderwood",
@@ -974,8 +989,10 @@ enum TFTData {
                 u("Taric","da_taric18",5,[it("Áo Choàng Lửa","DA_SunfireCape")])
             ],
             notes: ["Nguồn: tactics.tools · GM+ · Patch 18.1d.", "Snapshot tĩnh để app mở ngay, không cần server."]
-        ),
+        )
+    ]
 
+    private static let compsChunk10: [TFTComp] = [
         TFTComp(
             id: "blossom_p_gm_36",
             family: "blossom",
@@ -1074,8 +1091,10 @@ enum TFTData {
                 u("LeBlanc","da_18_leblanc",2,[])
             ],
             notes: ["Nguồn: tactics.tools · GM+ · Patch 18.1d.", "Snapshot tĩnh để app mở ngay, không cần server."]
-        ),
+        )
+    ]
 
+    private static let compsChunk11: [TFTComp] = [
         TFTComp(
             id: "blossom_p_gm_40",
             family: "blossom",
@@ -1174,8 +1193,10 @@ enum TFTData {
                 u("Zyra","da_18_zyra",4,[])
             ],
             notes: ["Nguồn: tactics.tools · GM+ · Patch 18.1d.", "Snapshot tĩnh để app mở ngay, không cần server.", "Đây là biến thể/subcomp được ghi nhận từ trang Team Compositions."]
-        ),
+        )
+    ]
 
+    private static let compsChunk12: [TFTComp] = [
         TFTComp(
             id: "sprykin_p_master_44",
             family: "sprykin",
@@ -1274,8 +1295,10 @@ enum TFTData {
                 u("Soraka","da_18_soraka",4,[it("Diệt Khổng Lồ","DA_GiantSlayer")])
             ],
             notes: ["Nguồn: tactics.tools · Platinum+ · Last 2 Days.", "Bổ sung từ mục Show low play rate compositions / các bản ghi công khai của Team Compositions."]
-        ),
+        )
+    ]
 
+    private static let compsChunk13: [TFTComp] = [
         TFTComp(
             id: "full_plat_latest_juggernaut",
             family: "juggernaut",
@@ -1374,8 +1397,10 @@ enum TFTData {
                 u("Gnar","da_18_gnarsmall",5,[])
             ],
             notes: ["Nguồn: tactics.tools · Diamond+ · Patch 18.1d.", "Bổ sung từ mục Show low play rate compositions / các bản ghi công khai của Team Compositions."]
-        ),
+        )
+    ]
 
+    private static let compsChunk14: [TFTComp] = [
         TFTComp(
             id: "full_diamond_patch_rift",
             family: "riftbeast",
@@ -1474,8 +1499,10 @@ enum TFTData {
                 u("Taric","da_taric18",5,[])
             ],
             notes: ["Nguồn: tactics.tools · Platinum+ · Patch 18.1d.", "Bổ sung từ mục Show low play rate compositions / các bản ghi công khai của Team Compositions."]
-        ),
+        )
+    ]
 
+    private static let compsChunk15: [TFTComp] = [
         TFTComp(
             id: "full_master_latest_defender",
             family: "defender",
@@ -1574,8 +1601,10 @@ enum TFTData {
                 u("LeBlanc","da_18_leblanc",2,[])
             ],
             notes: ["Nguồn: tactics.tools · Diamond+ · Last 2 Days.", "Bổ sung từ mục Show low play rate compositions / các bản ghi công khai của Team Compositions."]
-        ),
+        )
+    ]
 
+    private static let compsChunk16: [TFTComp] = [
         TFTComp(
             id: "variant_diamond_patch_jug_sivir",
             family: "juggernaut",
@@ -1674,9 +1703,29 @@ enum TFTData {
                 u("Kennen","da_18_kennen",5,[])
             ],
             notes: ["Nguồn: tactics.tools · Master+ · Last 2 Days.", "Biến thể cùng family được đưa vào màn Variants riêng."]
-        ),
-
+        )
     ]
+
+    static var comps: [TFTComp] {
+        var values: [TFTComp] = []
+        values.append(contentsOf: compsChunk01)
+        values.append(contentsOf: compsChunk02)
+        values.append(contentsOf: compsChunk03)
+        values.append(contentsOf: compsChunk04)
+        values.append(contentsOf: compsChunk05)
+        values.append(contentsOf: compsChunk06)
+        values.append(contentsOf: compsChunk07)
+        values.append(contentsOf: compsChunk08)
+        values.append(contentsOf: compsChunk09)
+        values.append(contentsOf: compsChunk10)
+        values.append(contentsOf: compsChunk11)
+        values.append(contentsOf: compsChunk12)
+        values.append(contentsOf: compsChunk13)
+        values.append(contentsOf: compsChunk14)
+        values.append(contentsOf: compsChunk15)
+        values.append(contentsOf: compsChunk16)
+        return values
+    }
 }
 
 enum TFTTheme {
