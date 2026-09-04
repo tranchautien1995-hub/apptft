@@ -1,25 +1,18 @@
-# ĐTCL Meta 18 — V2.7 FULL SNAPSHOT
+# TFT Meta 18 — V3.4 FULL CATALOG
 
-Bản static theo đúng hướng V1: không server, không Python, không parse live khi mở app.
+Static snapshot, iOS 15, không server/Python.
 
-## Dữ liệu
-- Snapshot: 04/09/2026
-- Nguồn: tactics.tools Team Compositions
-- 47 cấu hình / biến thể
-- 4 mốc rank: Platinum+, Diamond+, Master+, GM+
-- 2 bộ dữ liệu: Last 2 Days và Patch 18.1d
-- Gộp nhiều biến thể/subcomp cùng họ đội hình bằng nút tím
+## Sửa chính
+- Mặc định Tất cả rank để thấy catalog rộng nhất.
+- Thêm Low play ON/OFF giống ý tưởng `Show low play rate compositions` của tactics.tools.
+- Bổ sung nhiều comp công khai bị thiếu ở V3.3, đặc biệt Platinum+ Last 2 Days, Diamond+ Patch và Master+ Last 2 Days.
+- Nút Variants màu tím giữ ở màn riêng; khi Tất cả rank sẽ gom subcomp cùng family trong cùng snapshot.
+- Cost tướng được chuẩn hóa theo bảng Set 18 của tactics.tools (Ezreal 4-cost, Ornn/Leona/Akali 1-cost, v.v.).
+- Fiddlesticks dùng slug ảnh `da_18_fiddlesticks`.
+- Filter vẫn hiện danh sách tên tướng.
+- Hàng tướng trên iOS vẫn là ScrollView ngang độc lập ngoài NavigationLink.
 
-## Điều khiển
-- Ranked
-- Rank
-- Last 2 Days / Patch 18.1d
-- All Comps / Only Main Comps / Has Variants
-- Sort: Avg. Place / Top 4 / Win / Play Rate
-- Filter theo tên đội hình hoặc tướng
-
-## Ghi chú
-Đây là snapshot tĩnh. Khi meta thay đổi, cập nhật dữ liệu trong Models.swift rồi build bản mới. Một số subcomp được lấy từ các bản ghi công khai của Team Compositions và được gắn nhãn nguồn theo rank/window.
-
-## Build IPA
+## Build
 GitHub Actions → Build TFT Meta 18 IPA → Run workflow.
+
+- V3.4 final: thêm 3 alternate comps vào Variants cho Last 2 Days để nút tím xuất hiện rõ hơn.
