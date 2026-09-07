@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct CompGroup: Identifiable {
     let id: String
@@ -394,6 +395,41 @@ struct SectionLabel: View {
 }
 
 
+struct PlannerCopyButton: View {
+    let comp: TFTComp
+    @State private var copied = false
+
+    var body: some View {
+        Button(action: copyCode) {
+            HStack(spacing: 6) {
+                Image(systemName: copied ? "checkmark" : "doc.on.doc")
+                    .font(.system(size: 11, weight: .bold))
+                Text(copied ? "Đã sao chép" : "Sao chép đội hình")
+                    .font(.system(size: 10, weight: .bold))
+            }
+            .foregroundColor(copied ? TFTTheme.green : TFTTheme.goldSoft)
+            .padding(.horizontal, 10)
+            .frame(height: 34)
+            .background(TFTTheme.surfaceRaised)
+            .overlay(
+                RoundedRectangle(cornerRadius: 9)
+                    .stroke(copied ? TFTTheme.green.opacity(0.65) : TFTTheme.goldBorder, lineWidth: 1)
+            )
+            .cornerRadius(9)
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+
+    private func copyCode() {
+        UIPasteboard.general.string = comp.teamPlannerCode
+        copied = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
+            copied = false
+        }
+    }
+}
+
+
 struct LinkedCompCard: View {
     let rank: Int?
     let comp: TFTComp
@@ -436,6 +472,11 @@ struct LinkedCompCard: View {
                         ForEach(comp.units) { UnitMiniCard(unit: $0) }
                     }
                     .padding(.horizontal, 1)
+                }
+
+                HStack {
+                    Spacer()
+                    PlannerCopyButton(comp: comp)
                 }
 
                 Divider().background(TFTTheme.border)

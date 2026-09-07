@@ -26,3 +26,9 @@ GitHub Actions → Build TFT Meta 18 IPA → Run workflow.
 ## V3.4.2 build fix
 - Loại bỏ `Group { ... }` trong `RemoteImage` gây lỗi generic inference trên Xcode 16.4.
 - Dùng `ZStack` làm root view, giữ fallback ảnh và retry URL.
+
+
+## V3.5 — Copy + Image Fix
+- Chỉ thêm nút **Sao chép đội hình** (Riot Team Planner code Set 18).
+- Chỉ sửa mapping ảnh tướng Set 18 bị sai/broken (bao gồm Akali).
+- Không thay dữ liệu đội hình, stats, item, filter, variants, Level Plan hay bố cục khác.

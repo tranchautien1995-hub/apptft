@@ -36,6 +36,10 @@ struct TFTComp: Identifiable, Hashable {
         if avgPlace <= 4.50 { return "B" }
         return "C"
     }
+
+    var teamPlannerCode: String {
+        TFTData.teamPlannerCode(for: units)
+    }
 }
 
 enum TFTSort: String, CaseIterable, Identifiable {
@@ -59,8 +63,146 @@ enum TFTData {
     static let snapshot = "04/09/2026"
     static let sourceURL = URL(string: "https://tactics.tools/team-compositions/latest")!
     static func face(_ slug: String) -> String {
-        let fixed = slug == "da_fiddlesticks18" ? "da_18_fiddlesticks" : slug
-        return "https://ap.tft.tools/img/gg17/face/\(fixed).jpg?w=160"
+        "https://ap.tft.tools/img/gg17/face/\(slug).jpg?w=160"
+    }
+
+    static func officialFaceSlug(for name: String, fallback: String) -> String {
+        switch name {
+        case "Ahri": return "da_18_ahri"
+        case "Akali": return "da_18_akali_ad"
+        case "Alistar": return "da_18_alistar"
+        case "Amumu": return "da_amumu18"
+        case "Ashe": return "da_18_ashe"
+        case "Azir": return "da_18_azir"
+        case "Bụi Gai Đỏ": return "da_brambleback18"
+        case "Caitlyn": return "da_18_caitlyn"
+        case "Camille": return "da_18_camille"
+        case "Cassiopeia": return "da_18_cassiopeia"
+        case "Chim Mẹ": return "da_crimsonraptor18"
+        case "Cua Kỳ Cục": return "da_scuttlecrab18"
+        case "Cóc Thành Tinh Gromp": return "da_gromp18_ap"
+        case "Draven": return "da_draven18"
+        case "Elise": return "da_18_elise"
+        case "Ezreal": return "da_18_ezreal"
+        case "Fiddlesticks": return "da_fiddlesticks18"
+        case "Gnar": return "da_18_gnarsmall"
+        case "Hecarim": return "da_18_hecarim"
+        case "Ivern": return "da_18_ivern"
+        case "Karma": return "da_karma18"
+        case "Kayle": return "da_18_kayle"
+        case "Kennen": return "da_18_kennen"
+        case "Kobuko": return "da_18_kobuko"
+        case "Kog'Maw": return "da_kogmaw18_ad"
+        case "LeBlanc": return "da_18_leblanc"
+        case "Leona": return "da_18_leona"
+        case "Lillia": return "da_18_lillia"
+        case "Lux Thần Rừng": return "da_18_lux_elderwood"
+        case "Malphite": return "da_18_malphite"
+        case "Maokai": return "da_18_maokai"
+        case "Master Yi": return "da_18_masteryi_ad"
+        case "Morgana": return "da_18_morgana"
+        case "Mầm Non": return "da_cinderling18"
+        case "Nidalee": return "da_nidalee18_ap"
+        case "Ornn": return "da_18_ornn"
+        case "Quái Đá Krug": return "da_krug18"
+        case "Rakan": return "da_18_rakan"
+        case "Rammus": return "da_18_rammus"
+        case "Rek'Sai": return "da_18_reksai"
+        case "Rengar": return "da_18_rengar"
+        case "Rồng Ngàn Tuổi": return "da_18_elderdragon"
+        case "Sejuani": return "da_18_sejuani"
+        case "Sett": return "da_18_sett"
+        case "Shen": return "da_18_shen"
+        case "Sivir": return "da_18_sivir"
+        case "Soraka": return "da_18_soraka"
+        case "Sói Hắc Ám": return "da_murkwolf18"
+        case "Sỏi": return "da_18_sentry"
+        case "Taric": return "da_taric18"
+        case "Teemo": return "da_18_teemo"
+        case "Tristana": return "da_18_tristana"
+        case "Varus": return "da_18_varus"
+        case "Veigar": return "da_18_veigar"
+        case "Vi": return "da_vi18"
+        case "Vệ Binh": return "da_sentinel18"
+        case "Xayah": return "da_18_xayah"
+        case "Yorick": return "da_18_yorick"
+        case "Zyra": return "da_18_zyra"
+        default: return fallback
+        }
+    }
+
+    static func plannerID(for name: String) -> Int? {
+        switch name {
+        case "Ahri": return 1001
+        case "Akali": return 1002
+        case "Alistar": return 1003
+        case "Amumu": return 1005
+        case "Ashe": return 1008
+        case "Azir": return 1009
+        case "Bụi Gai Đỏ": return 1011
+        case "Caitlyn": return 1012
+        case "Camille": return 1013
+        case "Cassiopeia": return 1014
+        case "Mầm Non": return 1015
+        case "Draven": return 1019
+        case "Rồng Ngàn Tuổi": return 1020
+        case "Elise": return 1021
+        case "Ezreal": return 1023
+        case "Fiddlesticks": return 1024
+        case "Gnar": return 1025
+        case "Cóc Thành Tinh Gromp": return 1026
+        case "Hecarim": return 1027
+        case "Ivern": return 1029
+        case "Karma": return 1031
+        case "Kayle": return 1034
+        case "Kennen": return 1035
+        case "Kog'Maw": return 1038
+        case "Quái Đá Krug": return 1039
+        case "LeBlanc": return 1040
+        case "Leona": return 1041
+        case "Lillia": return 1042
+        case "Lux Thần Rừng": return 1043
+        case "Malphite": return 1044
+        case "Maokai": return 1045
+        case "Master Yi": return 1046
+        case "Morgana": return 1048
+        case "Sói Hắc Ám": return 1049
+        case "Nidalee": return 1051
+        case "Ornn": return 1055
+        case "Rakan": return 1056
+        case "Rammus": return 1057
+        case "Chim Mẹ": return 1058
+        case "Rek'Sai": return 1059
+        case "Rengar": return 1060
+        case "Cua Kỳ Cục": return 1062
+        case "Sejuani": return 1063
+        case "Vệ Binh": return 1064
+        case "Sỏi": return 1065
+        case "Sett": return 1066
+        case "Shen": return 1067
+        case "Sivir": return 1068
+        case "Soraka": return 1070
+        case "Taric": return 1072
+        case "Teemo": return 1073
+        case "Tristana": return 1075
+        case "Varus": return 1077
+        case "Veigar": return 1078
+        case "Vi": return 1079
+        case "Xayah": return 1081
+        case "Yorick": return 1082
+        case "Zyra": return 1084
+        case "Kobuko": return 1085
+        default: return nil
+        }
+    }
+
+    static func teamPlannerCode(for units: [UnitBuild]) -> String {
+        var slots = Array(units.prefix(10)).map { unit -> String in
+            guard let code = plannerID(for: unit.name) else { return "000" }
+            return String(format: "%03x", code)
+        }
+        while slots.count < 10 { slots.append("000") }
+        return "02" + slots.joined() + "TFTSet18"
     }
     static func item(_ slug: String) -> String { "https://ap.tft.tools/img/items_s14/\(slug).png?w=96" }
     static func it(_ name: String, _ slug: String) -> ItemBuild { ItemBuild(name: name, imageURL: item(slug)) }
@@ -73,7 +215,7 @@ enum TFTData {
         if c1.contains(name) { return 1 }; if c2.contains(name) { return 2 }; if c3.contains(name) { return 3 }; if c4.contains(name) { return 4 }; if c5.contains(name) { return 5 }
         return fallback
     }
-    static func u(_ name: String, _ slug: String, _ cost: Int, _ items: [ItemBuild] = []) -> UnitBuild { UnitBuild(name: name, imageURL: face(slug), cost: set18Cost(name, fallback: cost), items: items) }
+    static func u(_ name: String, _ slug: String, _ cost: Int, _ items: [ItemBuild] = []) -> UnitBuild { UnitBuild(name: name, imageURL: face(officialFaceSlug(for: name, fallback: slug)), cost: set18Cost(name, fallback: cost), items: items) }
     private static let compsChunk01: [TFTComp] = [
         TFTComp(
             id: "blossom_l_diamond_0",

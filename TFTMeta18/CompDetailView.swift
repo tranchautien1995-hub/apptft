@@ -87,6 +87,11 @@ struct CompDetailView: View {
                     StatCell(value: String(format: "%.1f%%", comp.winRate), label: "Win %", accent: TFTTheme.goldSoft)
                 }
             }
+
+            HStack {
+                Spacer()
+                PlannerCopyButton(comp: comp)
+            }
         }
     }
 
